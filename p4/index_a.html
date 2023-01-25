@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>
+      function subscribe() {
+        var email = prompt("What is your email?", "type here");
+
+        $.post({
+          type: "POST",
+          url: "email",
+          data: email,
+          contentType: "application/text; charset=utf-8",
+          dataType: "json"
+        }).done(function(data) {
+          alert(data);
+        }).fail(function(data) {
+          alert("POST failed");
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <body style="background-color:pink">
+    <h1>Welcome!</h1>
+
+    <p>Enjoy the data.<br></p>
+          <button onclick="subscribe()">Subscribe</button>
+        
+    <br>
+    <a href="donate.html?from=a">link to donation!<br></a>
+        
+    <a href="browse.html">link to data!</a>
+    <br>
+    <html><body><h3>Negative vs New Negative</h3><img src="plot1.svg"><br><br></body></html>
+    <html><body><h3>Negative vs Negative_7Day_avg</h3><img src="plot2.svg"></body></html>
+    <html><body><h3>Negative_7Day_avg</h3><img src="plot2.svg?bins=100"></body></html>
+
+  </body>
+</html>
